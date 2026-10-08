@@ -1,0 +1,169 @@
+/* Shared actions, field classes, and feedback. Module layouts remain local. */
+.button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  transition: transform var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard);
+}
+
+.button:hover:not(:disabled):not([aria-disabled="true"]) {
+  border-color: var(--border-hover);
+  color: var(--ink-strong);
+  background: var(--canvas-subtle);
+  box-shadow: var(--shadow-sm);
+}
+.button:active:not(:disabled):not([aria-disabled="true"]) { box-shadow: none; }
+.button[aria-disabled="true"] { opacity: 0.58; cursor: not-allowed; }
+.button--primary { border-color: var(--primary); color: var(--primary-contrast); background: var(--primary); box-shadow: 0 3px 8px rgba(41, 56, 111, 0.14); }
+.button--primary:hover:not(:disabled):not([aria-disabled="true"]) { border-color: var(--primary-hover); color: var(--primary-contrast); background: var(--primary-hover); box-shadow: 0 5px 12px rgba(41, 56, 111, 0.2); }
+.button--primary:active:not(:disabled):not([aria-disabled="true"]) { background: var(--primary-active); }
+.button--danger { border-color: var(--danger); color: #fff; background: var(--danger); }
+.button--danger:hover:not(:disabled):not([aria-disabled="true"]) { border-color: #9d3837; color: #fff; background: #9d3837; }
+.button.is-saved { border-color: var(--success); color: var(--success); background: var(--success-soft); }
+
+.text-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 0;
+  color: var(--primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-align: left;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+.text-button:hover:not(:disabled) { color: var(--accent-hover); }
+
+.icon-button {
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  background: var(--surface);
+  transition: color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
+}
+.icon-button:hover:not(:disabled) { color: var(--primary); border-color: var(--border-hover); background: var(--canvas-subtle); }
+
+/* .form-input is also used as a wrapper; these rules only target native controls. */
+.form-input:is(input, select, textarea) {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background-color: var(--surface);
+  font: inherit;
+  box-shadow: var(--shadow-xs);
+}
+.form-input:is(select) { padding-right: 38px; }
+.form-input:is(textarea) { min-height: 112px; resize: vertical; }
+.form-input:is(input, select, textarea):hover:not(:disabled) { border-color: var(--border-hover); }
+.form-input:is(input, select, textarea):focus { border-color: var(--focus); box-shadow: var(--shadow-focus); }
+.form-input:is(input, select, textarea)[aria-invalid="true"] { border-color: var(--danger); }
+.field-helper, .small-note { color: var(--muted); font-size: var(--font-size-sm); line-height: 1.6; }
+:is(.button, .text-button, .icon-button, .form-input):focus-visible { outline: 2px solid var(--focus); outline-offset: var(--focus-offset); }
+
+/* The generic live region is neutral; success is always an explicit state. */
+:where(.status, .alert, [role="alert"]:not(.sr-only):not(.campus-state), p[role="status"]:not(.sr-only)) {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background: var(--surface-inset);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+:where(.alert, .form-error, [role="alert"]:not(.sr-only):not(.campus-state)) { border-color: #ecc7c7; border-left-color: var(--danger); color: var(--danger); background: var(--danger-soft); }
+:where(.status--success) { border-color: #bcdccd; border-left-color: var(--success); color: var(--success); background: var(--success-soft); }
+:where(.status--warning) { border-color: #e5d3aa; border-left-color: var(--warning); color: var(--warning); background: var(--warning-soft); }
+:where(.status--info) { border-color: #cbd5f1; border-left-color: var(--info); color: var(--info); background: var(--info-soft); }
+:where([role="alert"]:not(.campus-state), .status) > p { color: inherit; }
+.form-error { display: flex; align-items: flex-start; gap: var(--space-2); }
+.form-error > svg { flex: 0 0 auto; }
+
+.section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-6); }
+.section-heading h2 { margin-top: var(--space-2); }
+
+.badge {
+  display: inline-flex;
+  min-height: 26px;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  background: var(--canvas-subtle);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.badge--warm { border-color: #f2c9b3; color: var(--accent-active); background: var(--accent-soft); }
+.badge--blue { border-color: #cbd5f1; color: var(--info); background: var(--info-soft); }
+.badge--green { border-color: #bcdccd; color: var(--success); background: var(--success-soft); }
+
+.integration-note {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid #f2c9b3;
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+.integration-note svg { flex: 0 0 auto; color: var(--accent-active); }
+.integration-note strong { display: block; margin-bottom: var(--space-1); }
+.integration-note p { font-size: var(--font-size-sm); line-height: 1.65; }
+
+.empty-state { display: grid; justify-items: center; gap: var(--space-3); padding: var(--space-9) var(--space-6); text-align: center; }
+.empty-state p { max-width: 48ch; color: var(--muted); }
+.empty-state-icon { display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid #ccd2ed; border-radius: var(--radius-md); color: var(--primary); background: var(--primary-soft); }
+
+.campus-state {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-width: 640px;
+  align-content: center;
+  justify-items: start;
+  gap: var(--space-4);
+  margin: 0 auto;
+  padding: var(--space-7);
+  text-align: left;
+}
+.campus-state__eyebrow { color: var(--danger); font-size: var(--font-size-sm); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.campus-state__action { min-height: 44px; padding: 10px 16px; border: 1px solid var(--primary); border-radius: var(--radius-sm); color: var(--primary-contrast); background: var(--primary); font-weight: 600; }
+.campus-state__action:hover { background: var(--primary-hover); }
+
+@media (max-width: 600px) {
+  .section-heading { align-items: flex-start; flex-direction: column; }
+  .campus-state { padding: var(--space-6) var(--space-4); }
+}
+
+@media (forced-colors: active) {
+  :is(.button, .icon-button, .form-input, .campus-state__action) { border-color: ButtonText; color: ButtonText; background: ButtonFace; box-shadow: none; }
+  :is(.button, .text-button, .icon-button, .form-input):focus-visible { outline-color: Highlight; }
+  :is(.button, .icon-button):disabled, .button[aria-disabled="true"] { color: GrayText; border-color: GrayText; opacity: 1; }
+  :is(.badge, .integration-note, .status, .alert), :where([role="alert"]:not(.campus-state):not(.sr-only), p[role="status"]:not(.sr-only)) { color: CanvasText; border-color: CanvasText; background: Canvas; }
+}

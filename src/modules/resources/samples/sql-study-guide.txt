@@ -1,0 +1,18 @@
+CampusOS — Original demo learning material
+SQL joins, without the confusion
+Sample course: CSE 221 · Not approved university material.
+
+Start with two tables: Books and Loans. A join lets you ask a question that needs information from both.
+
+INNER JOIN returns only matching rows. Use it to see books that have a recorded loan.
+
+LEFT JOIN keeps every row from the left table. Use it to include books that have never been borrowed.
+
+Check the joining key before running the query. A non-unique key can duplicate your result rows.
+
+Example:
+SELECT Books.title, Loans.loan_date
+FROM Books
+LEFT JOIN Loans ON Books.id = Loans.book_id;
+
+This deliberately public synthetic sample contains no university records or student data.

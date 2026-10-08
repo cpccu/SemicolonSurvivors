@@ -1,0 +1,21 @@
+/* CampusOS global styles. Public Sans is bundled through @fontsource. */
+@import "@fontsource/public-sans/latin-400.css";
+@import "@fontsource/public-sans/latin-500.css";
+@import "@fontsource/public-sans/latin-600.css";
+@import "@fontsource/public-sans/latin-700.css";
+@import "./tokens.css";
+@import "./base.css";
+@import "./shell.css";
+@import "./dashboard.css";
+@import "./content-cards.css";
+@import "./dialogs.css";
+@import "./module-collections.css";
+@import "./module-workflows.css";
+@import "./auth-workflows.css";
+@import "./event-workflows.css";
+@import "./content-workflows.css";
+@import "./ui-primitives.css";
+@import "./loading-states.css";
+@import "./responsive.css";
+@import "./product-composition.css";
+@import "./motion.css";

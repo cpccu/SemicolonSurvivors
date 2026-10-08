@@ -1,0 +1,231 @@
+/* Loading states use shape and motion as reinforcement; status text remains required. */
+
+.skeleton,
+.skeleton-loader {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-inset);
+}
+
+.skeleton::after,
+.skeleton-loader::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.72) 50%, transparent 80%);
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+.loading-skeleton {
+  display: grid;
+  width: min(100%, 460px);
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.loading-skeleton__line {
+  display: block;
+  width: 80%;
+  height: 16px;
+}
+
+.loading-skeleton__line--wide {
+  width: 100%;
+  height: 32px;
+  border-radius: var(--radius-md);
+}
+
+.loading-skeleton__line--short {
+  width: 50%;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(41, 56, 111, 0.16);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spinner-rotate 800ms linear infinite;
+}
+
+.spinner--small {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.spinner--large {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+.dots-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dots-loader span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dot-bounce 1.2s ease-in-out infinite;
+}
+
+.dots-loader span:nth-child(2) { animation-delay: 140ms; }
+.dots-loader span:nth-child(3) { animation-delay: 280ms; }
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: var(--canvas-deep);
+}
+
+.progress-bar-fill {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background: var(--primary);
+  transition: width var(--motion-slow) var(--ease-standard);
+}
+
+.progress-bar-fill::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-100%);
+  animation: progress-shimmer 1.6s ease-in-out infinite;
+}
+
+.progress-bar--indeterminate .progress-bar-fill {
+  width: 30% !important;
+  animation: progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+.fade-in,
+.fade-in-up,
+.fade-in-down,
+.fade-in-left,
+.fade-in-right,
+.scale-in,
+.slide-in-up,
+.slide-in-down {
+  animation-duration: var(--motion-enter);
+  animation-timing-function: var(--ease-out);
+  animation-fill-mode: both;
+}
+
+.fade-in { animation-name: fade-in; }
+.fade-in-up { animation-name: fade-in-up; }
+.fade-in-down { animation-name: fade-in-down; }
+.fade-in-left { animation-name: fade-in-left; }
+.fade-in-right { animation-name: fade-in-right; }
+.scale-in { animation-name: scale-in; }
+.slide-in-up { animation-name: slide-in-up; }
+.slide-in-down { animation-name: slide-in-down; }
+
+.loading-overlay {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(237, 241, 246, 0.94);
+  animation: fade-in var(--motion-normal) var(--ease-out) both;
+}
+
+@keyframes skeleton-shimmer {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes spinner-rotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { opacity: 0.5; transform: translateY(0) scale(0.82); }
+  40% { opacity: 1; transform: translateY(-3px) scale(1); }
+}
+
+@keyframes progress-shimmer {
+  to { transform: translateX(100%); }
+}
+
+@keyframes progress-indeterminate {
+  from { transform: translateX(-120%); }
+  to { transform: translateX(420%); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slide-in-up {
+  from { transform: translateY(18px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slide-in-down {
+  from { transform: translateY(-18px); }
+  to { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.skeleton::after, .skeleton-loader, .skeleton-loader::after, .spinner, .dots-loader span, .progress-bar-fill, .progress-bar-fill::after, .loading-overlay) {
+    animation: none;
+  }
+
+  .progress-bar-fill {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .skeleton, .skeleton-loader { border-color: GrayText; background: Canvas; }
+  .spinner { border-color: GrayText; border-top-color: Highlight; }
+  .dots-loader span, .progress-bar-fill { background: Highlight; }
+  .progress-bar { border: 1px solid GrayText; background: Canvas; }
+  .loading-overlay { background: Canvas; }
+
+  :where(.skeleton::after, .skeleton-loader::after, .progress-bar-fill::after) {
+    display: none;
+  }
+}

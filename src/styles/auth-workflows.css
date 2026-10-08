@@ -1,0 +1,83 @@
+/* Identity pages share the workspace system without borrowing its account permissions. */
+.identity-page { min-height: 100svh; padding: clamp(28px, 5vw, 60px) 20px; color: var(--ink); background: var(--canvas); }
+.identity-brand { display: flex; width: min(100%, 620px); align-items: center; flex-wrap: wrap; gap: 10px 12px; margin: 0 auto 30px; color: var(--primary); font-size: 21px; font-weight: 700; letter-spacing: -.04em; }
+.identity-brand-institution { display: flex; min-width: 0; max-width: 100%; flex: 1 1 220px; align-items: center; gap: 8px; }
+.identity-brand-logo-frame { display: block; width: 68px; flex: 0 0 68px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 6px; background: #fff; box-shadow: var(--shadow-xs); }
+.identity-brand-logo { display: block; width: 100%; height: auto; }
+.identity-brand small { min-width: 0; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .02em; line-height: 1.35; overflow-wrap: anywhere; }
+.identity-panel { position: relative; max-width: 620px; margin: auto; padding: clamp(24px, 5vw, 42px); border: 1px solid var(--border-strong); border-top: 3px solid var(--primary); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-md); animation: identity-surface-in var(--motion-enter) var(--ease-emphasized) both; }
+.identity-panel > * + * { margin-top: 22px; }
+.identity-heading { display: flex; align-items: flex-start; gap: 16px; }
+.identity-heading > div { min-width: 0; }
+.identity-heading h1 { margin-top: 8px; color: var(--ink-strong); font-size: clamp(26px, 4vw, 36px); font-weight: 600; line-height: 1.1; letter-spacing: -.05em; }
+.identity-mark { display: grid; width: 52px; height: 52px; flex: 0 0 auto; place-items: center; border: 1px solid #c5d0ee; border-radius: var(--radius-md); color: var(--primary); background: var(--primary-soft); }
+.identity-panel h2 { color: var(--ink-strong); font-size: 20px; }
+.identity-panel p { line-height: 1.7; }
+.identity-intro { color: var(--muted); font-size: 14px; }
+.identity-panel > a:last-child { display: inline-block; min-height: 34px; padding-top: 8px; color: var(--muted); font-size: 12px; font-weight: 600; }
+.identity-panel > a:last-child:hover { color: var(--primary); }
+.identity-panel .auth-form { padding: 22px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-inset); }
+.identity-panel .auth-form > label { font-size: 12px; }
+.identity-error, .identity-status { padding: 13px 16px; border: 1px solid; border-left-width: 3px; border-radius: var(--radius-sm); font-size: 13px; line-height: 1.65; animation: identity-feedback-in 180ms var(--ease-out) both; }
+.identity-error { border-color: #ebc4c4; border-left-color: var(--danger); color: var(--danger); background: var(--danger-soft); }
+.identity-status { border-color: #b9dbcc; border-left-color: var(--success); color: var(--success); background: var(--success-soft); }
+.identity-complete { display: grid; gap: 14px; padding: 22px; border: 1px solid #b9dbcc; border-radius: var(--radius-md); color: var(--success); background: var(--success-soft); animation: identity-feedback-in 180ms var(--ease-out) both; }
+.identity-complete h2 { color: var(--success); }
+.identity-complete p { color: var(--success); font-size: 13px; }
+.identity-complete .button { justify-self: start; }
+.identity-import { max-width: 1000px; }
+.identity-import textarea { width: 100%; min-height: 240px; padding: 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-inset); font: 13px/1.7 var(--font-mono); resize: vertical; }
+.identity-import table { width: 100%; border-collapse: collapse; text-align: left; }
+.identity-import th, .identity-import td { padding: 13px; border-bottom: 1px solid var(--border); font-size: 13px; overflow-wrap: anywhere; }
+.identity-import th { color: var(--muted); background: var(--surface-inset); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; }
+.identity-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md); }
+.identity-check { display: flex; align-items: flex-start; gap: 10px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.identity-check input { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 2px; }
+.identity-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.identity-actions > a:not(.button) { min-height: 34px; padding: 7px 0; color: var(--primary); font-size: 12px; font-weight: 600; }
+.identity-panel > .identity-actions:last-child { padding-top: 20px; border-top: 1px solid var(--border); }
+
+.mfa-panel { max-width: 800px; }
+.mfa-assurance { margin-bottom: 18px; padding: 16px 18px; border: 1px solid #c4d0ee; border-radius: var(--radius-md); background: var(--info-soft); }
+.mfa-assurance strong { color: var(--primary); font-size: 14px; }
+.mfa-assurance p { margin-top: 7px; color: var(--muted); font-size: 12px; }
+.mfa-factor-list { display: grid; gap: 8px; padding: 0; list-style: none; }
+.mfa-factor-list li { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-inset); }
+.mfa-factor-list li strong { color: var(--ink-strong); font-size: 14px; }
+.mfa-factor-list li span { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
+.mfa-factor-list .button { min-height: 38px; font-size: 12px; }
+.mfa-setup, .mfa-challenge { padding-top: 24px; border-top: 1px solid var(--border); }
+.mfa-setup > * + *, .mfa-challenge > * + * { margin-top: 16px; }
+.mfa-setup > p, .mfa-challenge > p { color: var(--muted); font-size: 13px; line-height: 1.75; }
+.mfa-qr { display: block; width: min(256px, 100%); height: auto; padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-md); background: #fff; box-shadow: var(--shadow-xs); }
+.mfa-setup details { padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-inset); }
+.mfa-setup summary { min-height: 28px; padding: 4px 0; color: var(--primary); font-size: 12px; font-weight: 600; cursor: pointer; }
+.mfa-setup details p { margin-top: 10px; color: var(--muted); font-size: 12px; }
+.mfa-secret { display: block; margin-top: 12px; padding: 14px; border: 1px dashed var(--border-strong); border-radius: var(--radius-sm); color: var(--ink); background: var(--surface); font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; user-select: all; }
+.mfa-code { max-width: 240px; min-height: 54px; font-size: 22px !important; font-variant-numeric: tabular-nums; font-family: var(--font-mono) !important; letter-spacing: .22em; }
+.mfa-panel .button, .mfa-panel .text-button { min-height: 44px; }
+.mfa-panel [tabindex="-1"]:focus { outline: 2px solid var(--focus); outline-offset: 3px; }
+.mfa-removal-dialog > p { color: var(--muted); font-size: 13px; line-height: 1.75; }
+.mfa-removal-dialog .button--danger { border-color: var(--danger); color: #fff; background: var(--danger); }
+.mfa-removal-dialog .button--danger:hover:not(:disabled) { background: #9d3837; }
+.mfa-removal-dialog .identity-check { min-height: 44px; margin: 20px 0; padding: 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-inset); }
+.account-actions { position: relative; display: flex; align-items: center; gap: 8px; }
+.account-actions > p { position: absolute; top: calc(100% + 8px); right: 0; width: 250px; padding: 12px; border: 1px solid #ecc7c7; border-radius: var(--radius-sm); color: var(--danger); background: var(--danger-soft); box-shadow: var(--shadow-sm); font-size: 12px; }
+
+@keyframes identity-surface-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes identity-feedback-in { from { opacity: .5; transform: translateY(3px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 600px) {
+  .identity-page { padding: 24px 12px; }
+  .identity-brand { margin-bottom: 20px; }
+  .identity-panel { padding: 24px 18px; border-radius: var(--radius-md); }
+  .identity-heading { gap: 12px; }
+  .identity-mark { width: 42px; height: 42px; }
+  .identity-heading h1 { font-size: 26px; }
+  .identity-heading .eyebrow { font-size: 10px; }
+  .identity-panel .auth-form { padding: 16px; }
+  .identity-actions { align-items: stretch; }
+  .identity-actions .button { flex: 1 1 auto; }
+  .identity-import th, .identity-import td { padding: 10px; font-size: 12px; }
+  .mfa-factor-list li { padding: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .identity-panel, .identity-error, .identity-status, .identity-complete { animation: none; } }

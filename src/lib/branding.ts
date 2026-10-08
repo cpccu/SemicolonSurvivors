@@ -1,0 +1,5 @@
+export const CAMPUS_PRODUCT_NAME = "CampusOS";
+export const CAMPUS_INSTITUTION_NAME = "City University";
+export const CAMPUS_COUNTRY_NAME = "Bangladesh";
+export const CAMPUS_INSTITUTION_LABEL = `${CAMPUS_INSTITUTION_NAME} · ${CAMPUS_COUNTRY_NAME}`;
+export const CAMPUS_CONCEPT_LABEL = CAMPUS_INSTITUTION_LABEL;

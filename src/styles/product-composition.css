@@ -1,0 +1,150 @@
+/* Integrated type and layout contract shared by student and staff workspaces. */
+.campus-brand small { font-size: 10px; letter-spacing: .08em; }
+.sidebar-private-label, .sidebar-account-status, .nav-group-label { font-size: 11px; letter-spacing: .08em; }
+.nav-group-label { color: #aab6cd; }
+.sidebar-account strong, .sidebar-nav a, .sidebar-nav button { font-size: 14px; }
+.sidebar-account small { font-size: 12px; }
+.sidebar-nav a, .sidebar-nav button { min-height: 44px; }
+.sidebar-explore, .preview-profile strong { font-size: 13px; }
+.preview-profile small, .sidebar-source-note { font-size: 12px; color: #aab6cd; }
+.header-search, .header-sign-in, .account-actions .header-sign-in { min-height: 44px; font-size: 13px; white-space: nowrap; }
+.campus-brand-copy strong { font-weight: 700; white-space: nowrap; }
+.mobile-brand .campus-brand { color: var(--ink-strong); }
+.mobile-brand .campus-brand .brand-os { color: var(--accent-active); }
+.mobile-brand .campus-brand small { color: var(--subtle); }
+.account-actions .icon-button { width: 44px; height: 44px; }
+.header-status small, .header-account-summary strong, .header-account-summary small { font-size: 12px; }
+.mobile-navigation button span { font-size: 12px; }
+.dialog-heading > .icon-button { width: 44px; height: 44px; min-height: 44px; }
+.search-result strong { font-size: 15px; }
+.search-result small { font-size: 12px; }
+.content-toolbar label, .content-form label, .content-detail label { font-size: 14px; }
+.content-toolbar input, .content-toolbar select, .content-form input, .content-form textarea, .content-form select { font-size: 16px; min-height: 44px; }
+.content-list-row small, .content-list-row small:first-child, .detail-source small, .document-preview-label, .document-preview .document-disclaimer, .artwork-caption { font-size: 12px; }
+.header-location-label, .header-status, .header-account strong, .header-account small { font-size: 12px; }
+.campus-main { max-width: 1560px; }
+.filter-tabs button, .select-label, .collection-label { font-size: 13px; }
+.filter-tabs button { min-height: 44px; }
+.resource-browser-row small, .article-row small, .academic-update small, .directory-card > small { font-size: 12px; }
+.module-page .notice-priority, .campus-dialog .notice-priority, .module-page .change-comparison small, .campus-dialog .change-comparison small, .module-page .notice-foot strong, .campus-dialog .notice-foot strong, .module-page .notice-foot small, .campus-dialog .notice-foot small { font-size: 12px; }
+.module-page .notice-foot button, .campus-dialog .notice-foot button { width: 44px; height: 44px; }
+.resource-course { font-size: 12px; }
+.field-floating { position: relative; }
+.field-floating .floating-input { min-height: 54px; padding: 20px 14px 8px; }
+.field-floating .floating-label { position: absolute; left: 14px; top: 17px; color: var(--muted); font-size: 14px; pointer-events: none; transition: transform var(--motion-fast), font-size var(--motion-fast); }
+.field-floating .floating-input:focus + .floating-label, .field-floating .floating-input:not(:placeholder-shown) + .floating-label { transform: translateY(-13px); font-size: 11px; color: var(--primary); }
+.today-page-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+.today-page-heading > div:first-child > p:last-child { margin-top: 6px; color: var(--muted); font-size: 16px; }
+.today-page-heading .eyebrow, .today-screen .eyebrow { font-size: 11px; letter-spacing: .1em; }
+.today-page-heading .today-date { color: var(--ink); font-size: 14px; }
+.today-page-heading .today-date svg { color: var(--primary); }
+.today-page-heading .today-date small { color: var(--muted); font-size: 12px; }
+.today-overview { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 24px; align-items: stretch; margin-bottom: 24px; }
+.today-overview .today-hero { min-height: 330px; grid-template-columns: 1fr; margin: 0; background: var(--ink-strong); border-color: var(--ink-strong); border-radius: var(--radius-lg); }
+.today-overview .today-hero-copy { padding: 32px; }
+.today-overview .today-hero h1 { font-size: clamp(34px, 3.8vw, 48px); letter-spacing: -.05em; line-height: 1.08; }
+.today-overview .today-hero h1 span { color: var(--citrus); font-style: normal; font-weight: 600; }
+.today-overview .today-hero-title-row { display: block; }
+.today-overview .hero-state { position: absolute; right: 20px; bottom: 20px; font-size: 11px; }
+.today-overview .today-hero-welcome { color: #d4def2; font-size: 17px; line-height: 1.6; }
+.today-hero-actions { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 24px; }
+.today-hero-actions .button { border-color: var(--citrus); color: var(--ink-strong); background: var(--citrus); }
+.today-hero-actions .button:hover { color: var(--ink-strong); background: #e7f5a2; }
+.today-hero-actions .text-button { color: #fff; }
+.today-overview .today-hero-meta { margin-top: 18px; }
+.today-overview .hero-data-note { padding: 0; border: 0; font-size: 12px; color: #c5d2ec; }
+.today-overview .today-hero-art { position: absolute; right: -20px; bottom: 10px; width: 210px; height: 150px; opacity: .3; border: 0; background: none; pointer-events: none; }
+.today-overview .today-hero-art::before, .today-overview .hero-art-label { display: none; }
+.today-overview .campus-quick-actions { display: flex; flex-direction: column; gap: 12px; margin: 0; }
+.today-overview .quick-actions-heading { margin: 0; }
+.quick-actions-heading h2 { font-size: 20px; }
+.quick-actions-heading > span { font-size: 11px; }
+.today-overview .quick-actions-grid { flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.quick-action { grid-template-columns: 36px minmax(0, 1fr) 16px; min-height: 92px; gap: 12px; padding: 18px 14px; }
+.quick-action-index { display: none; }
+.quick-action-icon { width: 36px; height: 36px; }
+.quick-action strong { font-size: 14px; white-space: normal; }
+.quick-action small { font-size: 12px; white-space: normal; }
+.account-quick-links { gap: 8px; margin-top: 0; }
+.account-quick-links a, .account-quick-links button { min-height: 40px; padding: 7px 10px; font-size: 12px; }
+.account-quick-links > span { display: none; }
+.today-screen > .preview-disclosure { margin-bottom: 24px; border: 1px solid var(--border); border-left: 3px solid var(--accent); background: var(--surface); }
+.preview-disclosure > span { font-size: 11px; }
+.preview-disclosure p { color: var(--muted); font-size: 13px; }
+.today-focus-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; margin-bottom: 32px; align-items: start; }
+.today-focus-grid > * { min-width: 0; }
+.today-focus-grid .course-notice { padding: 26px; }
+.today-focus-grid .course-notice h2 { font-size: 28px; }
+.today-screen .notice-course { font-size: 14px; }
+.today-screen .notice-priority, .today-screen .change-before small, .today-screen .change-after small { font-size: 11px; }
+.today-screen .change-before p, .today-screen .change-after p { font-size: 14px; }
+.today-screen .notice-foot strong, .today-screen .notice-foot small { font-size: 12px; color: var(--muted); }
+.today-screen .notice-foot button { width: 44px; height: 44px; }
+.timeline-heading h2 { font-size: 22px; }
+.timeline-disclosure, .timeline-copy small, .timeline-copy > span { font-size: 12px; }
+.timeline-copy strong { font-size: 14px; white-space: normal; }
+.timeline-marker small { font-size: 10px; }
+.timeline-footer { min-height: 44px; font-size: 13px; }
+.today-grid { grid-template-columns: minmax(0, 1fr) 300px; }
+.today-primary .section-heading h2 { font-size: 25px; }
+.today-primary .section-heading .text-button { min-height: 44px; font-size: 13px; }
+.event-meta, .event-category, .event-cta { font-size: 13px; }
+.event-cta { min-height: 44px; }
+.date-month { font-size: 11px; }
+.today-screen .event-gradient-bg { min-height: 260px; padding: 24px; }
+.today-screen .event-title { font-size: 22px; line-height: 1.25; }
+.today-screen .event-meta, .today-screen .event-category { font-size: 12px; }
+.today-screen .event-cta { min-height: 44px; font-size: 13px; padding: 9px 14px; background: var(--surface); }
+.today-screen .date-day { font-size: 22px; }
+.today-screen .date-month { font-size: 11px; }
+.today-screen .event-badge-date { width: 48px; height: 56px; }
+.today-screen .resource-row { padding: 16px; gap: 14px; }
+.today-screen .resource-row-copy strong { font-size: 15px; white-space: normal; }
+.today-screen .resource-course, .today-screen .resource-row-copy > small { font-size: 12px; }
+.account-workspace-identity h2 { font-size: 18px; white-space: normal; }
+.account-workspace-identity p, .account-workspace-link strong { font-size: 13px; }
+.account-workspace-link { min-height: 56px; }
+.account-workspace-link small, .account-workspace-note, .account-live, .account-workspace-heading .eyebrow { font-size: 12px; }
+.aside-title h2 { font-size: 20px; }
+.saved-count, .saved-summary p, .actions-empty p { font-size: 14px; }
+.actions-empty h3 { font-size: 22px; }
+.actions-empty .button, .aside-footer-button { min-height: 44px; font-size: 13px; }
+.help-card h2 { font-size: 24px; }
+.help-card .eyebrow, .help-card-demo { font-size: 11px; }
+.help-card > p:not(.eyebrow), .help-card .text-button, .help-card-links button { font-size: 13px; }
+.help-card-demo { color: #6f5c7d; }
+.help-card-links button { min-height: 44px; }
+.today-screen .transport-top, .today-screen .transport-top span:last-child { font-size: 11px; }
+.today-screen .transport-card h2 { font-size: 18px; }
+.today-screen .departure-time strong { font-size: 36px; }
+.today-screen .departure-time span, .today-screen .departure-time small, .today-screen .mini-journey, .today-screen .transport-route, .today-screen .schedule-note { font-size: 12px; }
+.today-screen .transport-view { min-height: 44px; font-size: 13px; }
+.campus-page-footer { font-size: 12px; }
+.actions-tabs button, .action-workflow-links .button, .request-journey strong { min-height: 44px; font-size: 14px; }
+.saved-item strong { font-size: 16px; white-space: normal; }
+.saved-item small, .saved-item span span, .saved-items .small-note, .request-journey small, .request-journey p { font-size: 13px; }
+
+@media (max-width: 1240px) {
+  .today-overview { grid-template-columns: 1fr; }
+  .today-overview .today-hero { min-height: 300px; }
+  .today-overview .quick-actions-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .today-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
+  .today-focus-grid { grid-template-columns: 1fr; }
+  .today-page-heading { align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .today-page-heading { flex-direction: column; gap: 12px; }
+  .today-overview .today-hero-copy { padding: 28px 24px; }
+  .today-overview .hero-state { position: static; margin-top: 14px; }
+  .today-overview .today-hero-art { display: none; }
+  .today-overview .quick-actions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .quick-action { display: flex; align-items: flex-start; flex-direction: column; min-height: 154px; }
+  .quick-action > svg { position: absolute; top: 18px; right: 14px; }
+  .quick-action > span:nth-child(3) { width: 100%; }
+  .today-focus-grid { gap: 18px; }
+  .today-focus-grid .course-notice { padding: 22px; }
+  .today-screen .event-grid { grid-template-columns: 1fr; }
+  .today-screen .section-heading { gap: 8px; }
+}

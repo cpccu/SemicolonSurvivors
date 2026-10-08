@@ -1,0 +1,149 @@
+.workspace {
+  min-width: 0;
+  padding: 0 clamp(14px, 2.8vw, 32px) 38px;
+}
+
+.workspaceBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 24px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.workspaceLocation {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  color: var(--muted);
+}
+
+.locationMark {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.locationCopy { display: grid; gap: 2px; min-width: 0; }
+.locationCopy small,
+.railLabel {
+  color: var(--subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.locationCopy strong {
+  overflow: hidden;
+  color: var(--ink-strong);
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspaceTools { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+
+.dataLegend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.legendItem { display: inline-flex; align-items: center; gap: 6px; }
+.legendDot { width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 3px var(--success-soft); }
+.legendDotSynthetic { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+
+.moduleMapButton {
+  display: inline-flex;
+   min-height: 44px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard);
+}
+
+.moduleMapButton:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.moduleMapButton:active { transform: translateY(0); }
+.moduleMapButton:focus-visible, .moduleLink:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.workspaceContent { min-width: 0; }
+
+.moduleRail {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0 0;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+}
+
+.railLabel { white-space: nowrap; }
+.moduleLinks { display: flex; align-items: center; gap: 6px; min-width: 0; overflow-x: auto; scrollbar-width: thin; }
+
+.moduleLink {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 9px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: transform var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
+}
+
+.moduleLink:hover { border-color: var(--border); color: var(--primary); background: var(--surface); transform: translateY(-1px); }
+.moduleLinkActive { border-color: #bac5eb; color: var(--primary); background: var(--primary-soft); }
+.moduleNumber { color: var(--accent-active); font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; }
+
+@media (max-width: 760px) {
+  .workspace { padding: 0 14px 28px; }
+  .workspaceBar { align-items: flex-start; flex-direction: column; gap: 12px; margin-bottom: 18px; }
+  .workspaceTools { justify-content: space-between; width: 100%; }
+  .moduleMapButton { min-height: 44px; }
+  .moduleRail { grid-template-columns: 1fr; gap: 9px; margin-top: 22px; padding: 12px; }
+  .moduleLinks { margin: 0 -3px; padding: 2px 3px 4px; }
+}
+
+@media (max-width: 480px) {
+  .dataLegend { gap: 8px; font-size: 11px; }
+  .dataLegend .legendItem:last-child { max-width: 94px; white-space: normal; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moduleLink, .moduleMapButton { transition: none; }
+}

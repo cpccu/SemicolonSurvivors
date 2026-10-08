@@ -1,0 +1,16 @@
+CampusOS — Original demo learning material
+A little practice in problem solving
+Sample course: CSE 231 · Not approved university material.
+
+1. Find the first repeated value in a list. Can you do better than checking every pair?
+Hint: consider a set of values you have already seen.
+
+2. Search a sorted list for a target. Explain what happens to the search space at each step.
+Hint: compare the target with the value at the midpoint.
+
+3. Count word frequencies in a paragraph. How would you handle capitalization?
+Hint: choose a consistent normalization before counting.
+
+Reflection: state your assumptions and compare time and space complexity.
+
+This deliberately public synthetic sample contains no university records or student data.

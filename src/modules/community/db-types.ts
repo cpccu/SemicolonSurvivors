@@ -1,0 +1,35 @@
+export type CommunityJson = string | number | boolean | null | { [key: string]: CommunityJson | undefined } | CommunityJson[];
+type Table<Row> = { Row: Row; Insert: Partial<Row>; Update: Partial<Row>; Relationships: [] };
+export type ReviewedRow = { id: string; title: string; source_label: string; source_url: string; reviewed_at: string;
+  visibility: "public" | "campus"; state: "draft" | "published" | "archived"; version: number; updated_at: string; updated_by: string };
+export type DirectoryRow = ReviewedRow & { kind: "department" | "club" | "office" | "place" | "guide"; description: string; location: string; contact: string };
+export type RouteRow = ReviewedRow & { stops: CommunityJson; schedules: CommunityJson; exceptions: CommunityJson; notice: string };
+export type PreferencesRow = { user_id: string; interests: string[]; courses: string[]; section: string; clubs: string[]; saved_route_id: string | null; updated_at: string };
+export type ItemRow = { id: string; owner_id: string; kind: "lost" | "found"; title: string; description: string; location: string; occurred_on: string; photo_id: string;
+  state: "open" | "handover" | "resolved" | "withdrawn" | "hidden"; version: number; created_at: string; updated_at: string };
+export type ClaimRow = { id: string; item_id: string; claimant_id: string; evidence: string; state: "pending" | "accepted" | "rejected" | "completed" | "withdrawn"; created_at: string; updated_at: string };
+export type ComplaintRow = { id: string; owner_id: string; office_id: string; assigned_staff_id: string | null; subject: string; description: string;
+  state: "received" | "in_review" | "awaiting_student" | "resolved" | "closed" | "escalated"; version: number; created_at: string; updated_at: string };
+export type CommunityTables = {
+  community_directory: Table<DirectoryRow>; community_routes: Table<RouteRow>; community_preferences: Table<PreferencesRow>;
+  community_media: Table<{ id: string; owner_id: string; object_path: string; mime_type: string; byte_size: number; purpose: "item" | "complaint"; entity_id: string | null; state: "pending" | "ready" | "attached" | "failed"; created_at: string }>;
+  community_items: Table<ItemRow>; community_claims: Table<ClaimRow>; community_complaints: Table<ComplaintRow>;
+  community_offices: Table<{ id: string; title: string; description: string; default_staff_id: string | null; active: boolean }>;
+  community_messages: Table<{ id: string; complaint_id: string; author_id: string; body: string; attachment_id: string | null; created_at: string }>;
+  community_history: Table<{ id: string; complaint_id: string; actor_id: string; from_state: string | null; to_state: string; note: string; created_at: string }>;
+};
+type Rpc<Args> = { Args: Args; Returns: CommunityJson };
+export type CommunityFunctions = {
+  community_save_preferences: Rpc<{ p_data: CommunityJson }>;
+  community_publish_directory: Rpc<{ p_id: string | null; p_version: number | null; p_data: CommunityJson }>;
+  community_publish_route: Rpc<{ p_id: string | null; p_version: number | null; p_data: CommunityJson }>;
+  community_create_item: Rpc<{ p_data: CommunityJson }>;
+  community_claim_item: Rpc<{ p_item_id: string; p_evidence: string }>;
+  community_item_transition: Rpc<{ p_item_id: string; p_version: number; p_action: string; p_claim_id?: string | null }>;
+  community_create_complaint: Rpc<{ p_office_id: string; p_subject: string; p_description: string }>;
+  community_complaint_message: Rpc<{ p_id: string; p_body: string; p_attachment_id?: string | null }>;
+  community_complaint_transition: Rpc<{ p_id: string; p_version: number; p_state: string; p_note: string }>;
+  community_media_access: Rpc<{ p_id: string }>;
+  community_admin_change: Rpc<{ p_scope_id: string; p_user_id: string; p_action: string; p_data: CommunityJson; p_reason: string }>;
+  community_admin_office: Rpc<{ p_id: string | null; p_title: string; p_description: string; p_staff_id: string | null; p_active: boolean }>;
+};

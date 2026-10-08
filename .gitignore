@@ -1,0 +1,38 @@
+# Local planning documents; do not publish to GitHub.
+/Reo-s-rule/
+
+# Local agent state and attachments.
+/.opencode/omnirush/
+
+# Secrets and local environment overrides.
+.env
+.env.*
+!.env.example
+/scripts/.seed-showcase-credentials.json
+/scripts/.seed-showcase-credentials.json
+
+# Dependencies and generated outputs.
+node_modules/
+.next/
+out/
+dist/
+coverage/
+playwright-report/
+test-results/
+.vercel/
+
+# Local operating-system files.
+.DS_Store
+Thumbs.db
+
+# Markdown files
+*.md
+!README.md
+
+# Coding agents
+.omnirush
+.opencode
+.superpowers
+
+# Video directory
+video/

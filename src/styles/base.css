@@ -1,0 +1,142 @@
+/* Element defaults and native controls; shared UI classes live in ui-primitives.css. */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  min-width: 320px;
+  background: var(--canvas);
+  color-scheme: light;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-md);
+  line-height: 1.55;
+  color: var(--ink);
+  background-color: var(--canvas);
+  background-image:
+    linear-gradient(rgba(41, 56, 111, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41, 56, 111, 0.025) 1px, transparent 1px);
+  background-size: 36px 36px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { color: var(--primary-contrast); background: var(--primary); }
+:where(img, svg, video, canvas) { max-width: 100%; }
+:where(button, input, select, textarea) { -webkit-tap-highlight-color: transparent; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: var(--ink-strong);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(1.85rem, 3vw, 2.2rem); }
+h2 { font-size: clamp(1.3rem, 2vw, 1.65rem); }
+h3 { font-size: var(--font-size-lg); }
+h4 { font-size: var(--font-size-md); }
+p, ul, ol, dl { margin: 0; }
+p { color: var(--ink); }
+strong, th { font-weight: 600; }
+small, .small-text { font-size: var(--font-size-sm); color: var(--muted); }
+code, pre { font-family: var(--font-mono); }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+a:hover { color: var(--primary-hover); }
+:where(p, li) a:not(.button) { text-decoration: underline; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; border: 0; background: transparent; color: inherit; }
+:where(button, input, select, textarea):disabled { cursor: not-allowed; }
+button:disabled { opacity: 0.58; }
+
+/* Focus uses an outline as well as a ring, so it survives forced-color modes. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: var(--focus-offset);
+}
+
+:where(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]), select, textarea) {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), background-color var(--motion-fast) var(--ease-standard);
+}
+
+textarea { min-height: 112px; resize: vertical; }
+select {
+  appearance: none;
+  padding-right: 38px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none' stroke='%23536078' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 5 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+input[type="file"] { padding: 7px 10px; }
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.8; }
+:where(input, select, textarea):hover:not(:disabled) { border-color: var(--border-hover); }
+:where(input, select, textarea):focus { border-color: var(--focus); box-shadow: var(--shadow-focus); }
+:where(input, select, textarea):disabled { color: var(--muted); background-color: var(--surface-inset); }
+:where(input, select, textarea)[readonly] { background-color: var(--surface-inset); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--primary); }
+:where(input, select, textarea)[aria-invalid="true"] { border-color: var(--danger); }
+
+input::file-selector-button {
+  min-height: 30px;
+  margin-right: var(--space-3);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  background: var(--primary-soft);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (forced-colors: active) {
+  body { background-image: none; }
+  select { appearance: auto; background-image: none; }
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline-color: Highlight; box-shadow: none; }
+  :where(input, select, textarea):disabled { color: GrayText; }
+}

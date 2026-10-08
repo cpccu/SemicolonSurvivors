@@ -1,0 +1,78 @@
+.event-ticket-qr {
+  width: fit-content;
+  max-width: 100%;
+  margin: 18px 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-xs);
+}
+.event-ticket-qr canvas {
+  display: block;
+  width: min(256px, 100%);
+  height: auto;
+  background: #fff;
+}
+.event-ticket-qr canvas[hidden],
+.event-camera-reader video[hidden] {
+  display: none;
+}
+.event-ticket-code {
+  display: block;
+  overflow-wrap: anywhere;
+  user-select: all;
+  line-height: 1.7;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background: var(--surface);
+  font-size: 12px;
+}
+.event-camera-reader {
+  margin: 18px 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
+}
+.event-camera-reader video {
+  display: block;
+  width: min(100%, 420px);
+  max-height: 320px;
+  border: 1px solid var(--border-strong);
+  background: var(--ink-strong);
+  object-fit: contain;
+  margin: 12px 0;
+  border-radius: var(--radius-sm);
+}
+.event-check-in label {
+  display: block;
+  margin: 12px 0 8px;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+.event-check-in-review {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-sm);
+  background: var(--primary-soft);
+  padding: 18px;
+  margin-top: 20px;
+  animation: check-in-feedback 180ms var(--ease-out) both;
+}
+.event-check-in-review h4 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+.event-check-in-review p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.event-check-in-review .detail-actions { margin-bottom: 0; }
+.event-camera-reader > p { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.event-check-in > .auth-form { margin-top: 18px; }
+.event-check-in > .auth-form label { margin-top: 0; }
+@keyframes check-in-feedback { from { opacity: .5; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 600px) { .event-camera-reader { padding: 12px; } .event-check-in-review { padding: 14px; } }
+@media (prefers-reduced-motion: reduce) { .event-check-in-review { animation: none; } }

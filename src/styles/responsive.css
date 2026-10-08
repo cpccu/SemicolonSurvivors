@@ -1,0 +1,22 @@
+/* Responsive composition for the signed-in shell and Today surface. */
+@media (max-width: 1180px) {
+  .campus-main { padding-right: clamp(20px, 3vw, 42px); padding-left: clamp(20px, 3vw, 42px); }
+}
+
+@media (max-width: 900px) {
+  .campus-main { max-width: 760px; }
+  .campus-dialog { max-width: calc(100vw - 32px); }
+}
+
+@media (max-width: 600px) {
+  .campus-dialog { width: 100%; max-width: 100%; height: 100vh; height: 100dvh; margin: 0; border: 0; border-radius: 0; }
+  .search-dialog, .module-dialog, .detail-dialog { margin-top: 0; }
+  .dialog-heading { padding: 20px 16px 12px; }
+  .dialog-description { padding: 0 16px; }
+  .dialog-actions { padding: 16px; }
+}
+
+@media (forced-colors: active) {
+  .campus-header { background: Canvas; backdrop-filter: none; }
+  .mobile-navigation { background: Canvas; border-color: CanvasText; backdrop-filter: none; }
+}
